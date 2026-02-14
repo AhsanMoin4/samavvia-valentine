@@ -31,8 +31,6 @@
     h1 { font-size: 26px; margin-bottom: 10px; color: #ff4b6e; }
     h2 { font-size: 18px; color: #888; margin-bottom: 15px; }
 
-    .countdown { font-size: 20px; color: #ff4b6e; margin-bottom: 15px; }
-
     .buttons { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
 
     button {
@@ -92,8 +90,6 @@
     <h1>Samavvia, will you be my Valentine? 💖</h1>
     <h2>Every second with you is magic ✨</h2>
 
-    <div class="countdown" id="countdown"></div>
-
     <div class="buttons">
       <button class="yes" onclick="sayYes()">Absolutely Yes 💘</button>
       <button class="no" id="noBtn">No 🙈</button>
@@ -123,26 +119,6 @@
       }
     }
 
-    function updateCountdown() {
-      const now = new Date();
-      let year = now.getFullYear();
-      let valentines = new Date(year, 1, 14);
-      if (now > valentines) valentines = new Date(year + 1, 1, 14);
-
-      const diff = valentines - now;
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const mins = Math.floor((diff / (1000 * 60)) % 60);
-      const secs = Math.floor((diff / 1000) % 60);
-
-      document.getElementById('countdown').innerText =
-        `Countdown to our forever Valentine: ${days}d ${hours}h ${mins}m ${secs}s`;
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-
-    // Make NO button impossible to click
     function moveNoButton() {
       const x = Math.random() * (window.innerWidth - 120);
       const y = Math.random() * (window.innerHeight - 60);
